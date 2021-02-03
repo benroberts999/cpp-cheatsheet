@@ -16,7 +16,7 @@ namespace ExampleTemplates {
 // Note: templates must be defined and implemented in the header file (for
 // reasons)
 template <typename Type> Type add(Type value1, Type value2) {
-  const Type result = value1 * value2;
+  const Type result = value1 + value2;
   return result;
 }
 
