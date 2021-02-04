@@ -24,8 +24,8 @@ struct MyStruct {
 // can use one of the very many existing libraries. This is just a basic
 // example.
 
-struct ComplexNumber {
-  // typically, Structs are used for very simple data structures
+class ComplexNumber {
+  // typically, classes are used for cases with member functions
 private:
   double m_real;
   double m_imag;
