@@ -2,10 +2,12 @@
 #include <string>   // for strings
 // We must 'include' the header files for any other files we use
 // Note: NEVER '#include' a .cpp file
+// NB: c++ library files included using <>, and user files w/ ""
 #include "VectorArraySTL.hpp"
 #include "classExample.hpp"
 #include "functions.hpp"
 #include "otherFunctions.hpp"
+#include "random.hpp"
 #include "templates.hpp"
 
 // Every c++ project must have 1 (and only 1 "main" function)
@@ -258,6 +260,8 @@ int main() {
   VectorArraySTL_example();
 
   classExample();
+
+  random_examples();
 
   return 0;
 }

@@ -58,7 +58,7 @@ $(BD)/%.o: $(SD)/%.cpp
 ################################################################################
 # Link the compiled files + build all final programs
 # will produce an executable called 'main'
-main: $(BD)/main.o $(BD)/functions.o $(BD)/otherFunctions.o $(BD)/VectorArraySTL.o $(BD)/classExample.o
+main: $(BD)/main.o $(BD)/functions.o $(BD)/otherFunctions.o $(BD)/VectorArraySTL.o $(BD)/classExample.o $(BD)/random.o
 	$(LINK)
 
 # Note: there are fancy ways to automatically determine the dependencies - but for simple projects it doesn't matter
@@ -67,4 +67,4 @@ main: $(BD)/main.o $(BD)/functions.o $(BD)/otherFunctions.o $(BD)/VectorArraySTL
 all: main
 
 clean:
-	rm -f main $(BD)/main.o $(BD)/functions.o $(BD)/otherFunctions.o $(BD)/VectorArraySTL.o $(BD)/classExample.o
+	rm -f main $(BD)/main.o $(BD)/functions.o $(BD)/otherFunctions.o $(BD)/VectorArraySTL.o $(BD)/classExample.o $(BD)/random.o
