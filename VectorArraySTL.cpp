@@ -52,7 +52,7 @@ void VectorArraySTL_example() {
   std::cout << "\n";
 
   // or, be super fancy, and use an std algorithm with a lambda
-  std::for_each(v.begin(), v.end(), [](auto &x) { std::cout << x << ", "; });
+  std::for_each(v.begin(), v.end(), [](int &x) { std::cout << x << ", "; });
   std::cout << "\n";
 
   std::cout << "\nSome algorithms\n";
@@ -78,7 +78,7 @@ void VectorArraySTL_example() {
 
   // Use a lambda to change to condition used to sort
   std::cout << "Sort the vector, backwards:\n";
-  std::sort(v.begin(), v.end(), [](auto a, auto b) { return b < a; });
+  std::sort(v.begin(), v.end(), [](int a, int b) { return b < a; });
 
   for (auto &x : v) {
     std::cout << x << ", ";

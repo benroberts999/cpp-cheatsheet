@@ -44,8 +44,12 @@ void classExample() {
   std::cout << "Use algorithms with our class objects:\n";
   // This is where lambdas really shine
   // Write lambdas to compare our complex numbers by imag, and norm:
-  auto comp_imag = [](auto x, auto y) { return x.get_imag() < y.get_imag(); };
-  auto comp_norm = [](auto x, auto y) { return x.norm() < y.norm(); };
+  auto comp_imag = [](ComplexNumber x, ComplexNumber y) {
+    return x.get_imag() < y.get_imag();
+  };
+  auto comp_norm = [](ComplexNumber x, ComplexNumber y) {
+    return x.norm() < y.norm();
+  };
 
   auto max_norm = std::max_element(vec.begin(), vec.end(), comp_norm);
   std::cout << "Max element (by norm) = " << max_norm->get_real() << " +i"

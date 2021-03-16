@@ -50,6 +50,6 @@ void random_examples() {
   // Gaussian (normal) distribution, with mean 0, standard deviation 1.0:
   std::normal_distribution<double> Gauss_rn(0.0, 1.0);
   for (int i = 0; i < 10; ++i) {
-    std::cout << Gauss_rn(mt_generator) << "\n ";
+    std::cout << Gauss_rn(mt_generator) << "\n";
   }
 }

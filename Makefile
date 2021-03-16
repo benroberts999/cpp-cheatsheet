@@ -18,7 +18,7 @@ BD=./
 # other options: -std=c++11, -std=c++14, -std=c++17, -std=c++20
 # Each new version of c++ add some nice features, but require newer compilers
 # They are all backwards compatible - code from 30 years ago will still compile
-CXXSTD=-std=c++14
+CXXSTD=-std=c++11
 
 ################################################################################
 ## Build config + options:
@@ -28,7 +28,7 @@ WARN=-Wall -Wextra -Wpedantic -Wconversion -Wshadow -Weffc++ -Wsign-conversion
 # Note: I use lots of warnings; you don't have to - but I consider the first 3 to be mandatory (so as not to form bad coding habits)
 
 # Optimisation level
-OPT=-O3
+#OPT=-O3
 
 ################################################################################
 # Linking + Compiling:
@@ -50,10 +50,11 @@ LINK=$(CXX) -o $@ $^ $(CXXFLAGS) $(LIBS)
 
 ################################################################################
 # Compile all cpp files into "object" files
-$(BD)/%.o: $(SD)/%.cpp
+$(BD)/%.o: $(SD)/%.cpp $(SD)/%.hpp $(SD)/templates.hpp
 	$(COMP)
 
 # Means: for every *.cpp file in the SD/ directory, compile to a *.o in the BD/ directory
+# NB: there are better automated ways of listing dependencies..
 
 ################################################################################
 # Link the compiled files + build all final programs

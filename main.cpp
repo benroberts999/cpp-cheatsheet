@@ -2,7 +2,7 @@
 #include <string>   // for strings
 // We must 'include' the header files for any other files we use
 // Note: NEVER '#include' a .cpp file
-// NB: c++ library files included using <>, and user files w/ ""
+// NB: convention: c++ library files included using <>, and user files w/ ""
 #include "VectorArraySTL.hpp"
 #include "classExample.hpp"
 #include "functions.hpp"
@@ -36,6 +36,14 @@ int main() {
   double d3 = d1 + d2;
   std::cout << "doubles: " << d1 << " " << d2 << " " << d3 << "\n";
 
+  // Avoid uninitialised variables! C++ does not auto-initialise these!
+  double do_not_do_this;
+  // This is undefined behaviour - *any* value may be in this variable
+  // (it will contain whatever 1s and 0s were already in its memory location)
+  // Often, it will be zero. But is NOT guaranteed to be zero.
+  std::cout << "This may be zero, but is not guaranteed to be so: "
+            << do_not_do_this << "\n";
+
   float f1 = 7.2f; // the 'f' here is optional, but makes '7.2' a float literal
   std::cout << "float: " << f1 << "\n";
 
@@ -50,10 +58,10 @@ int main() {
 
   // Note: be very careful
   double result = 3 / 5;
-  std::cout << "Result: " << result << "\n";
+  std::cout << "Result: 3/5 = " << result << "\n";
 
   double result2 = 3.0 / 5;
-  std::cout << "Result2: " << result2 << "\n";
+  std::cout << "Result2: 3.0/5 = " << result2 << "\n";
 
   // const:
   // If you know a value will never change, it's a good idea to mark it as

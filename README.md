@@ -30,8 +30,8 @@ Start at "main.cpp" - everything else is called from there.
   * Use Makefile. Once make is installed (sudo apt install make)
     * Simply run 'make' from command line
   * Alternatively: use old style:
-    * g++ -std=c++14 -O3 main.cpp functions.cpp otherFunctions.cpp classExample.cpp VectorArraySTL.cpp -o main
-    * clang++ -std=c++14 -O3 main.cpp functions.cpp otherFunctions.cpp classExample.cpp VectorArraySTL.cpp -o main
+    * g++ -std=c++11 main.cpp functions.cpp otherFunctions.cpp classExample.cpp VectorArraySTL.cpp random.cpp -o main
+    * clang++ -std=c++11 main.cpp functions.cpp otherFunctions.cpp classExample.cpp VectorArraySTL.cpp random.cpp -o main
   * Then: run the executable: ./main
 
 ## Online resources:
