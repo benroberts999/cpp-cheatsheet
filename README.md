@@ -17,6 +17,7 @@ Start at "main.cpp" - everything else is called from there.
 
 ### Windows
   * With windows 10, the easiest way is to install 'windows subsystem for linux'
+  * Enable 'windows subsystem for linux' under "Turn Windows Features on and off" - then restart your pc
   * Using the windows app store, install ubuntu
   * You will get a linux bash terminal that runs natively inside windows (not a virtual machine)
   * Your windows filesystem can be accessed from inside bash at /mnt/c/ (be *very* careful - there is no recycle bin, 'rm' is for life)
@@ -35,6 +36,10 @@ Start at "main.cpp" - everything else is called from there.
   * Then: run the executable: ./main
 
 ## Online resources:
+
+ * https://hackingcpp.com/
+    * Highly recommended - large array of tutorials, explainers, cheat sheets etc.
+    * Start with: https://hackingcpp.com/cpp/beginners_guide.html  
 
  * https://www.cplusplus.com/
     * Good, lots of examples, beginner friendly
