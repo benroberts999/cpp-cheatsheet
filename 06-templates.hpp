@@ -3,9 +3,6 @@
 // This is the simplest possible version of a template.
 // Much much more can be done with templates - it is a little more advanced
 
-//******************************************************************************
-namespace ExampleTemplates {
-
 // Templates solve the problem of writing multiple similar functions.
 // A new version of this function will be written for you every time you call it
 // with a new data type! Make computers do the repetitive work for us.
@@ -19,5 +16,3 @@ template <typename Type> Type add(Type value1, Type value2) {
   const Type result = value1 + value2;
   return result;
 }
-
-} // namespace ExampleTemplates

@@ -1,71 +1,68 @@
-################################################################################
-# This is a basic Makefile example.
-# You can do much more with make - but this is a good start
-# It makes compilation much easier and faster once you have larger projects
-################################################################################
+# Super basic makefile for examples.
+# A makefile is a basic way of compiling large c++ ptojects
+# They are not required, and are a little 'overkill' for very small projects
+# For cery large project, other build systems (CMake) are more favoured 
+# (but are more complex)
 
-## Which compiler: (g++, clang++) [no spaces]
-## Depending on your operating system, you may need to specify exactly where it is, or which version (e.g., CXX=g++-9)
 CXX=g++
-# CXX=clang++
+STD=-std=c++17
+WARN=-Wall -Wextra -Wpedantic -Wconversion
+OPT=-O3
 
-# Can use this if you want the source files and built pobject files in seperate directories
-SD=./
-BD=./
+EXECUTABLES = HelloWorld algorithm_lambda FourierTransform harmonic_oscillator lapack_basic lapack_matrix random openmp openmp_random static_example vector
 
-## c++ standard.
-# blank = default for whichever compiler you have (usually c++14)
-# other options: -std=c++11, -std=c++14, -std=c++17, -std=c++20
-# Each new version of c++ add some nice features, but require newer compilers
-# They are all backwards compatible - code from 30 years ago will still compile
-CXXSTD=-std=c++11
-
-################################################################################
-## Build config + options:
-#Warnings:
-WARN=-Wall -Wextra -Wpedantic -Wconversion -Wshadow -Weffc++ -Wsign-conversion
-
-# Note: I use lots of warnings; you don't have to - but I consider the first 3 to be mandatory (so as not to form bad coding habits)
-
-# Optimisation level
-#OPT=-O3
-
-################################################################################
-# Linking + Compiling:
-# [CXXFLAGS are passed at compilation, LIBS at linking]
-
-CXXFLAGS= $(CXXSTD) $(OPT) $(WARN) -I$(SD)
-LIBS=
-
-# -fopenmp allows openmp parallelisation - not needed if not used
-
-# For example, to use GSL libraries, write:
-#LIBS=-lgsl -lgslcblas
-
-# Command to compile objects and link them
-COMP=$(CXX) -c -o $@ $< $(CXXFLAGS)
-LINK=$(CXX) -o $@ $^ $(CXXFLAGS) $(LIBS)
-
-# (The fancy notation here is Makefile voodoo to automatically name the object files the same as the cpp files)
-
-################################################################################
-# Compile all cpp files into "object" files
-$(BD)/%.o: $(SD)/%.cpp $(SD)/%.hpp $(SD)/templates.hpp
-	$(COMP)
-
-# Means: for every *.cpp file in the SD/ directory, compile to a *.o in the BD/ directory
-# NB: there are better automated ways of listing dependencies..
-
-################################################################################
-# Link the compiled files + build all final programs
-# will produce an executable called 'main'
-main: $(BD)/main.o $(BD)/functions.o $(BD)/otherFunctions.o $(BD)/VectorArraySTL.o $(BD)/classExample.o $(BD)/random.o
-	$(LINK)
-
-# Note: there are fancy ways to automatically determine the dependencies - but for simple projects it doesn't matter
-
-# Default make rule:
-all: main
+# By default, all will be build by makefile
+all: $(EXECUTABLES)
 
 clean:
-	rm -f main $(BD)/main.o $(BD)/functions.o $(BD)/otherFunctions.o $(BD)/VectorArraySTL.o $(BD)/classExample.o $(BD)/random.o
+	rm -f -v $(EXECUTABLES)
+
+HelloWorld: HelloWorld.cpp
+	$(CXX) $(STD) -o $@ $@.cpp $(WARN) $(OPT)
+
+# nb:
+# "$@" expands to taget name
+# So, this is equivilant to:
+# g++ -o HelloWorld HelloWorld.cpp -Wall -Wextra -Wpedantic -Wconversion -O3
+
+algorithm_lambda: algorithm_lambda.cpp
+	$(CXX) $(STD) -o $@ $@.cpp $(WARN) $(OPT)
+
+# This one requires GSL library
+FourierTransform: FourierTransform.cpp
+	$(CXX) $(STD) -o $@ $@.cpp $(WARN) $(OPT) -lgsl
+
+harmonic_oscillator: harmonic_oscillator.cpp
+	$(CXX) $(STD) -o $@ $@.cpp $(WARN) $(OPT)
+
+# This one requires GSL library
+lambda: lambda.cpp
+	$(CXX) $(STD) -o $@ $@.cpp $(WARN) $(OPT)
+
+# this uses LAPACK
+lapack_basic: lapack_basic.cpp
+	$(CXX) $(STD) -o $@ $@.cpp $(WARN) $(OPT) -llapack -lblas
+
+# this uses LAPACK
+lapack_matrix: lapack_matrix.cpp
+	$(CXX) $(STD) -o $@ $@.cpp $(WARN) $(OPT) -llapack -lblas
+
+random: random.cpp
+	$(CXX) $(STD) -o $@ $@.cpp $(WARN) $(OPT)
+
+# this uses OPENMP
+openmp: openmp.cpp
+	$(CXX) $(STD) -o $@ $@.cpp $(WARN) $(OPT) -fopenmp
+
+# this uses OPENMP
+openmp_random: openmp_random.cpp
+	$(CXX) $(STD) -o $@ $@.cpp $(WARN) $(OPT) -fopenmp
+
+static_example: static_example.cpp
+	$(CXX) $(STD) -o $@ $@.cpp $(WARN) $(OPT)
+
+vector: vector.cpp
+	$(CXX) $(STD) -o $@ $@.cpp $(WARN) $(OPT)
+
+multi-file: multi-file-example/main.cpp multi-file-example/functions.cpp  multi-file-example/functions.hpp multi-file-example/other.cpp multi-file-example/other.hpp
+	$(CXX) $(STD) -o $@ multi-file-example/main.cpp multi-file-example/functions.cpp multi-file-example/other.cpp $(WARN) $(OPT)

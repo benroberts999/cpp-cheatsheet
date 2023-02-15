@@ -1,9 +1,16 @@
-/*
-!*.cpp
-!*.hpp
+## ignore all files in all subdirectories (including /)
+**/*
+## except: all subdirectories (just folders)
+!**/
+## except: gitignore file (only the one in /)
 !.gitignore
-!Makefile
-!*.md
-!src/
-!build/
-build/*
+## except: any file in any subdirectory that matches:
+!**/Makefile
+!**/*.md
+!**/*.cpp
+!**/*.hpp
+!**/*.ipp
+!**/*.sh
+!**/*.txt
+!**/*.gnu
+!**/*.py
