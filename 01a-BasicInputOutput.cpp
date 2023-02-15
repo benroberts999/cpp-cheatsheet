@@ -11,4 +11,9 @@ int main(int argc, char *argv[]) {
   for (int i = 0; i < argc; ++i) {
     std::cout << i << ") " << argv[i] << "\n";
   }
+
+  int i{0};
+  std::cout << "Please enter an integer:\n";
+  std::cin >> i;
+  std::cout << "Thanks. You entered: " << i << "\n";
 }
