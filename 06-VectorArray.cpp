@@ -174,28 +174,22 @@ int main() {
   }
   std::cout << "\n";
 
-  std::cout << "\nstd array: a fixed-sized array of contiguous memory\n";
-  // We must tell the compiler the size of the array, at compile time
-  std::array<int, 5> a{1, 2, 3, 4, 5};
-  for (auto &x : a) {
-    std::cout << x << ", ";
-  }
-  std::cout << "\n";
-
-  // The algorthms work for vectors, arrays, and other "containers"
-  auto max_itr_array = std::max_element(a.begin(), a.end());
-  std::cout << "max array element at: "
-            << std::distance(a.begin(), max_itr_array) << '\n';
-  std::cout << "max array value: " << *max_itr_array << '\n';
-
   // For STATIC arrays (that is, arrays where the number of elements are known
   // at compile time), you can use std::array instead
   // Works almost exactly the same as the above, except it cannot be resized,
   // and the number of elements is a compile-time parameter:
 
+  std::cout << "\nstd array: a fixed-sized array of contiguous memory\n";
+  // We must tell the compiler the size of the array, at compile time
   std::array<int, 5> array1{1, 2, 3, 4, 5};
   // std::array array2{1, 2, 3, 4, 5}; //with c++17, types can be deduced
   for (auto element : array1) {
     std::cout << element << "\n";
   }
+
+  // The algorthms work for vectors, arrays, and other "containers"
+  auto max_itr_array = std::max_element(array1.begin(), array1.end());
+  std::cout << "max array element at: "
+            << std::distance(array1.begin(), max_itr_array) << '\n';
+  std::cout << "max array value: " << *max_itr_array << '\n';
 }

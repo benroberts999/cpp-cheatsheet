@@ -1,7 +1,10 @@
 # c++ cheat sheet
 
 This is a very basic set of examples for using c++.
-Start at "main.cpp" - everything else is called from there.
+
+There are bunch of basic examples (01-Basic.cpp, 02-functions.cpp etc.)
+
+There are also a few more advanced examples: lapack_basic, FourierTransform etc.
 
 ## Get Compiler
 
@@ -32,10 +35,7 @@ Start at "main.cpp" - everything else is called from there.
 * Two ways to compile.
 * Use Makefile. Once make is installed (sudo apt install make)
   * Simply run 'make' from command line
-* Alternatively: use old style:
-  * g++ -std=c++11 main.cpp functions.cpp otherFunctions.cpp classExample.cpp VectorArraySTL.cpp random.cpp -o main
-  * clang++ -std=c++11 main.cpp functions.cpp otherFunctions.cpp classExample.cpp VectorArraySTL.cpp random.cpp -o main
-* Then: run the executable: ./main
+* Alternatively: you can compile each example manually
 
 ## Online resources
 
@@ -47,4 +47,4 @@ Start at "main.cpp" - everything else is called from there.
   * Good, lots of examples, beginner friendly
 
 * <https://en.cppreference.com/>
-  * The standard resource, extremely thorough and detailed. Not very beginner-friendly however (reads like a maths textbook)
+  * The standard resource, extremely thorough and detailed. Not very beginner-friendly however

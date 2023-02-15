@@ -9,7 +9,23 @@ STD=-std=c++17
 WARN=-Wall -Wextra -Wpedantic -Wconversion
 OPT=-O3
 
-EXECUTABLES = HelloWorld algorithm_lambda FourierTransform harmonic_oscillator lapack_basic lapack_matrix random openmp openmp_random static_example vector
+EXECUTABLES = 01a-BasicInputOutput \
+							01-Basic \
+							02a-multi-file-example \
+							02-functions-basic \
+							03-ClassesStructs \
+							04-Namespaces \
+							05-templates \
+							06-VectorArray \
+							07-algorithm_lambda \
+							08-random \
+							09-openmp \
+							10-openmp_random \
+							11-static_example \
+							FourierTransform \
+							harmonic_oscillator \
+							lapack_basic \
+							lapack_matrix \
 
 # By default, all will be build by makefile
 all: $(EXECUTABLES)

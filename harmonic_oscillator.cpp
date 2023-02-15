@@ -1,6 +1,8 @@
 #include <fstream>
 #include <iostream>
 
+// This solves the Harmonic oscilator ODE using Eulers method
+
 //--------------------------------------------------------------------------
 // We can put the function "declarations" (sort of like "placeholders")
 // at the top of the code, and then put the full definitions for those functions
