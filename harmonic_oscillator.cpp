@@ -1,7 +1,5 @@
 #include <fstream>
 #include <iostream>
-// #include <cmath>
-// #include <vector>
 
 //--------------------------------------------------------------------------
 // We can put the function "declarations" (sort of like "placeholders")
