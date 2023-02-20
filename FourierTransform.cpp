@@ -13,6 +13,8 @@
 
 int main(void) {
 
+  std::cout << "Calculating Fourier transform of function:\n";
+
   const std::size_t n = 300;
 
   // Construct array of complex numbers to store.
@@ -69,15 +71,20 @@ int main(void) {
   gsl_fft_complex_wavetable_free(wavetable);
   gsl_fft_complex_workspace_free(workspace);
 
+  std::string output_file_name = "FourierOut.txt";
+
   // Plot the data and the (absolute value of the) FT(data) to a file.
   // I scale the FT by sqrt(n), just so it's easier to see on same scale
-  std::ofstream out_file("data.txt");
+  std::ofstream out_file(output_file_name);
   for (std::size_t i = 0; i < n; i++) {
     out_file << i << ' ' << data.at(i).real() << ' '
              << std::abs(data_ft.at(i)) / std::sqrt(n) << "\n";
   }
-  // e.g., plot with gnuplot using:
-  // plot "data.txt" u 1:2 w l t "data", "" u 1:3 w l t "|FT(data)|/sqrt(N)"
+  std::cout << "Output to " << output_file_name << "\n";
+  std::cout << "plot with gnuplot using:\n"
+            << "  plot \"" << output_file_name
+            << "\" u 1:2 w l t \"data\", "
+               "\"\" u 1:3 w l t \"|FT(data)|/sqrt(N)\"\n";
 
   return 0;
 }

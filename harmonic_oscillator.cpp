@@ -78,9 +78,11 @@ Coords ODE_gradiant(const Coords &coords, const Parameters &params) {
   // Solve a damped harmonic oscillator:
   // m*dx^2/dt^2 + b*dx/dt + k*x = 0
 
-  // Coupled ODE equations:
+  // Store the derivative at point 'coords' in a Coords object:
   Coords gradient_kn;
+  // derivative of x is v (dx/dt):
   gradient_kn.x = coords.v;
+  // derivative of v dv/dt = dx^2/dt^2:
   gradient_kn.v =
       (-params.k_spring * coords.x - params.b_damp * coords.v) / params.mass;
   return gradient_kn;

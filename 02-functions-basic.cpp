@@ -1,5 +1,12 @@
 #include <iostream>
 
+// If we want to use a function, it must be *declared* before we use it.
+// We can do this either by definig the entire function at the start of the
+// file, (like the `multiply`) example, or by just *declaring* it at the start,
+// then we may define it anywhere (like the `print value`) example.
+// You can decare functions in different files, using another .cpp and header
+// file = see multi-file-example
+
 double multiply(double x1, double x2) {
   std::cout << "Calling the double version of multiply function: " << x1
             << " * " << x2 << " = \n";
@@ -18,25 +25,17 @@ int multiply(int x1, int x2) {
   return x1 * x2;
 }
 
+// The following are declarations. These functions are implemented/defined at
+// the bottom of the file
+
 // pass by value (copy)
-void printValue(int x1) {
-  std::cout << "printValue: " << x1 << "\n";
-  x1 *= 6; // modify our copy of x1 - outside is not affected
-  std::cout << "printValue: " << x1 << "\n";
-}
+void printValue(int x1);
 
 // pass by reference
-void modifyValue(int &x1) {
-  std::cout << "modifyValue\n";
-  // modify our *reference* to x1 - outside *is* affected
-  x1 = x1 * 2;
-}
+void modifyValue(int &x1);
 
 // pass by const reference
-void dontModify(const int &x1) {
-  std::cout << "dontModify " << x1 << "\n";
-  // x1 = x1 * 2; // this is not allowed, since in this scope, x1 is const
-}
+void dontModify(const int &x1);
 
 int main() {
   //****************************************************************************
@@ -89,4 +88,27 @@ int main() {
 
   std::cout << my_lambda(3.0) << "\n";
   std::cout << my_lambda2(3.0) << "\n";
+}
+
+//------------------------------------------------------------------------------
+/// Function defintions:
+
+// pass by value (copy)
+void printValue(int x1) {
+  std::cout << "printValue: " << x1 << "\n";
+  x1 *= 6; // modify our copy of x1 - outside is not affected
+  std::cout << "printValue: " << x1 << "\n";
+}
+
+// pass by reference
+void modifyValue(int &x1) {
+  std::cout << "modifyValue\n";
+  // modify our *reference* to x1 - outside *is* affected
+  x1 = x1 * 2;
+}
+
+// pass by const reference
+void dontModify(const int &x1) {
+  std::cout << "dontModify " << x1 << "\n";
+  // x1 = x1 * 2; // this is not allowed, since in this scope, x1 is const
 }

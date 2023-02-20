@@ -72,6 +72,7 @@ clean:
 09-openmp: 09-openmp.cpp
 	$(CXX) $(STD) -fopenmp -o $@ $@.cpp $(WARN) $(OPT)
 
+# this uses OPENMP, -fopenmp
 10-openmp_random: 10-openmp_random.cpp
 	$(CXX) $(STD) -fopenmp  -o $@ $@.cpp $(WARN) $(OPT)
 
@@ -92,5 +93,6 @@ harmonic_oscillator: harmonic_oscillator.cpp
 lapack_basic: lapack_basic.cpp
 	$(CXX) $(STD) -o $@ $@.cpp $(WARN) $(OPT) -llapack -lblas
 
+# These two require LAPACK and BLAS libraries:
 lapack_matrix: lapack_matrix.cpp
 	$(CXX) $(STD) -o $@ $@.cpp $(WARN) $(OPT) -llapack -lblas
