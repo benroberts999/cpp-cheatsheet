@@ -130,8 +130,7 @@ int main() {
 #pragma omp parallel
   {
     // nb: thread_local implies static: i.e., thread_local = static thread_local
-    thread_local std::mt19937 generator_tl(std::random_device{}() +
-                                           omp_get_thread_num());
+    thread_local std::mt19937 generator_tl(std::random_device{}());
 #pragma omp for
     for (int i = 0; i < n_loop; ++i) {
       int thread = omp_get_thread_num();
