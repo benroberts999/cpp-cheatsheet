@@ -81,11 +81,6 @@ clean:
 
 # More advanced examples:
 
-#This one ises the GSL library (-lgsl)
-# It must be installed: sudo apt-get install libgsl-dev
-FourierTransform: FourierTransform.cpp
-	$(CXX) $(STD) -o $@ $@.cpp $(WARN) $(OPT) -lgsl
-
 harmonic_oscillator: harmonic_oscillator.cpp
 	$(CXX) $(STD) -o $@ $@.cpp $(WARN) $(OPT)
 
